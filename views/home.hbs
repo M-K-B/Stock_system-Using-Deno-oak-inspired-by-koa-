@@ -1,0 +1,25 @@
+<body>
+
+        <ul>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/addStock">Add Stock</a></li>
+        </ul>
+    
+
+
+
+    {{#each data}}
+            <ul>
+                <li>Item name : {{this.name}}</li>
+                <li>Barcode : {{this.barcode}}</li>
+                <li>£ {{this.price}}.00</li>
+                <li>Aisle : {{this.Aisle}}</li>
+                <li>Location : {{this.Location}}</li>
+                <li>Last updated : {{this.added}}</li>
+                <li>Updated By : {{this.Created}}</li>
+                <li><img src="./uploads/{{this.photo}}" width="100px" height="100px"></li>
+            </ul>  
+    {{/each}}
+
+    
+</body>
