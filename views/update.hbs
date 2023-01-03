@@ -1,0 +1,27 @@
+<body>
+
+    <ul>
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/">Home</a></li>
+    </ul>
+{{#each data}}
+        <div id="content">
+            
+            <ul>
+                <li>Item name : {{this.name}}   <a href="/update/changeName/{{this.barcode}}"> Change Name</a>  </li>
+                <li>Barcode : {{this.barcode}}</li>
+                <li>£ {{this.price}}.00   <a href="/update/changePrice/{{this.barcode}}"> Change Price </a> </li>
+                <li>Aisle : {{this.Aisle}} <a href="/update/changeAisle/{{this.barcode}}"> Change Aisle </a> </li>
+                <li>Location : {{this.Location}}  <a href="/update/changeLocation/{{this.barcode}}"> Change Location </a> </li>
+                <li>Stock: {{this.quanity}} <a href="/update/changeQuanity/{{this.barcode}}"> Change Quanity </a>  </li>
+                <li>Last updated : {{this.added}}</li>
+                <li>Updated By : {{this.Created}}</li>
+                <li><img src="/uploads/{{this.photo}}" width="100px" height="100px"></li>
+                <li><a href="/update/changePhoto/{{this.barcode}}">Change Image</a></li>
+            </ul>  
+            <ul id="buttons">
+                <li><a href="/delete/{{this.barcode}}">delete this product</a></li>
+            </ul>
+        </div>
+    {{/each}}
+</body>

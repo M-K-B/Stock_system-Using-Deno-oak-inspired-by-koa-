@@ -10,7 +10,7 @@ export async function newStock(data, auth){
     
 }
 
-async function savePhoto(file) {
+export async function savePhoto(file) {
     let filename = ''
     if (file.contentType !== 'application/octet-stream'){
         const ext = file.filename.split('.').pop()
@@ -21,6 +21,22 @@ async function savePhoto(file) {
     return filename
 }
 
+
+
+export async function generateBarcode() {
+    let newBarcode = Math.floor(Math.random() * 10000000000);
+    console.log(`new Barcode ${newBarcode}`);
+    try {
+      const result = await db.query("SELECT COUNT(*) as count FROM product WHERE barcode = ?", [newBarcode]);
+      if (result[0].count === 0) {
+        return newBarcode;
+      }
+    } catch (error) {
+      // handle error
+      console.log(error)
+    }
+    // return default value or throw error
+  }
 
 async function addNewStock(data){
     console.log('addNewStock')
@@ -67,8 +83,8 @@ async function addNewStock(data){
                     console.log(data.barcode)
 
                     if(queryCheck === data.barcode){
-                            let checkAmount = `SELECT quanity FROM product WHERE barcode = ${data.barcode}`
-                            let AmountChecker = await db.query(checkAmount)
+                            let checkAmount = `SELECT quanity FROM product WHERE barcode = ?`
+                            let AmountChecker = await db.query(checkAmount, [data.barcode])
                             let queryAmount = JSON.stringify(AmountChecker[0]["quanity"])
 
 

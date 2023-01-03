@@ -1,0 +1,34 @@
+<body>
+         <ul>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/">Home</a></li>
+            
+        </ul>
+        {{#each data}}
+		<h3>Add stock to {{this.name}} || Current Stock : {{this.quanity}}</h3>
+        
+		<form action="/update/changeQuanity/{{this.barcode}}" method="post" enctype="multipart/form-data">
+            
+			 <div id="slider">
+			
+				<label for="quanity">Stock Quanity</label><br />
+				<input type="range" min="1" max="100" name="quanity" value="1" oninput="this.nextElementSibling.value = this.value" required>
+                <output>1<output>
+				</p>
+                <br/>
+            </div>
+
+            <div id="submit">
+			    <input type="submit" value="Set new Quanity">
+            </div>
+        </form>
+
+        <li><img src="/uploads/{{this.photo}}" width="100px" height="100px"></li>
+        {{/each}}
+
+
+		{{#if message}}
+			{{{message}}}
+		{{/if}}
+		</main>
+	</body>

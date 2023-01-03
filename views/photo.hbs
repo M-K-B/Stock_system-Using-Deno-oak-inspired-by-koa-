@@ -1,0 +1,32 @@
+<body>
+         <ul>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/">Home</a></li>
+            
+        </ul>
+        {{#each data}}
+		<h3>Change the photo of {{this.name}} from </h3>
+        <li><img src="/uploads/{{this.photo}}" width="100px" height="100px"></li>
+        
+		<form action="/update/changePhoto/{{this.barcode}}" method="post" enctype="multipart/form-data">
+            
+			 <p>
+				<label for="image">Image of the item</label><br />
+				<input type="file" id="image" name="image" accept="image/*" >
+				<img src="" style="width: 100px; height: 100px;">
+			</p>
+
+            <div id="submit">
+			    <input type="submit" value="Set new Photo">
+            </div>
+        </form>
+
+        
+        {{/each}}
+
+
+		{{#if message}}
+			{{{message}}}
+		{{/if}}
+		</main>
+	</body>

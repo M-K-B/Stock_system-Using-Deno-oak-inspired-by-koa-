@@ -10,11 +10,13 @@ const salt = await genSalt(saltRounds)
 
 export async function login(data){
     console.log(data)
-    let sql = `SELECT count(id) AS count FROM accounts where user="${data.username}";`
-    let records = await db.query(sql);
+
+    let loginName = data.username.toLowerCase();
+    let sql = `SELECT count(id) AS count FROM accounts where user = ?;`
+    let records = await db.query(sql, [loginName]);
     if(!records[0].count) throw new Error(`username "${data.username}" not found`)
-    sql = `SELECT pass FROM accounts WHERE user = "${data.username}";`
-    records = await db.query(sql)
+    sql = `SELECT pass FROM accounts WHERE user = ?;`
+    records = await db.query(sql, [loginName])
     const valid = await compare(data.password, records[0].pass)
     if(valid === false) throw new Error(`invalid password for account "${data.username}"`)
     return data.username
@@ -22,9 +24,21 @@ export async function login(data){
 
 
 export async function register(data){
-    const password = await hash(data.password, salt)
-    const sql = `INSERT INTO accounts(user, pass) VALUES("${data.username}", "${password}")`
-    console.log(sql)
-    await db.query(sql)
-    return true
+
+    let insertName = data.username.toLowerCase();
+    let checkUser = `SELECT count(id) AS count FROM accounts where user= ?;`
+
+    let records = await db.query(checkUser, [insertName]);
+
+
+    console.log(`${records[0].count} : records`)
+    if (records[0].count > 0){
+        return false
+    }else{
+        const password = await hash(data.password, salt)
+        const sql = `INSERT INTO accounts(user, pass) VALUES("${insertName}", "${password}")`
+        console.log(sql)
+        await db.query(sql)
+        return true
+    }
 }

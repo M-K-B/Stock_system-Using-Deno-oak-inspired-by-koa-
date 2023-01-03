@@ -21,10 +21,11 @@
 				<input type="file" id="image" name="image" accept="image/*" >
 				<img src="" style="width: 100px; height: 100px;">
 			</p>
-
 			<p>
-				<label for="barcode">barcode</label><br />
-				<input type="tel" minlength="10" size="10" maxlength="10" name="barcode" placeholder="barcode" required>
+				<label for="barcode">Generated barcode</label><br />
+				{{#if data}}
+				<input type="tel" minlength="10" size="10" maxlength="10" name="barcode" value="{{data}}" width="50px" required>
+				{{/if }}
 			</p>
 
 			<p>
@@ -41,7 +42,7 @@
 			</p>
 			<p>
 				<label for="price">Retail Price</label><br />
-				<input type="number" minlength="1" size="2" maxlength="9" name="price" placeholder="price" required>
+				<input type="number" minlength="1" size="2" maxlength="9" name="price"  step="any" placeholder="price" required>
                 
 			</p>
 
@@ -52,6 +53,7 @@
                 <output>1<output>
 				</p>
                 <br/>
+				
         </div>
 
         <div id="submit">

@@ -20,6 +20,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
 })
 
 
+
+
 async function displayImage(event){
     console.log('ADD File')
     const files = event.target.files
@@ -30,6 +32,8 @@ async function displayImage(event){
         img.src = data
     }
 }
+
+
 
 
 console.log('hello')
