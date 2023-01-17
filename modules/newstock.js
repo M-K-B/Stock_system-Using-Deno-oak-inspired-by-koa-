@@ -30,6 +30,8 @@ export async function generateBarcode() {
       const result = await db.query("SELECT COUNT(*) as count FROM product WHERE barcode = ?", [newBarcode]);
       if (result[0].count === 0) {
         return newBarcode;
+      } else {
+        return generateBarcode();
       }
     } catch (error) {
       // handle error

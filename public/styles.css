@@ -1,20 +1,72 @@
 body{
-    background-color: antiquewhite;
+    background-color: rgb(138, 183, 198);
 }
 
 
 ul li {
     list-style: none;
+
 }
 
 #content{
-    background-color: burlywood;
-    border: solid black 2px;
+    background-color: rgb(190, 210, 217);
+    width: 75%;
+    height: 50vh;
+    border-radius: 3vh;
     margin: auto;
-    padding: 5px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 0 rgb(129, 128, 128), 0 6px 20px 0 rgb(129, 128, 128);
+}
+#info{
+    
+    margin-top: 25px;
+    float: left;
+    
+    
 }
 
-#buttons li{
-    background-color: gray;
-    border: solid black 1px;
+#update li{
+    margin-top: 20px;
+}
+
+#info li a{
+    text-decoration: none;
+    border: solid aliceblue 2px;
+    padding: 4px 6px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    color: black;
+}
+img{
+    width: 250px;
+    height: 250px;
+    border-radius: 3vh;
+}
+#pic{
+    border: 1px solid green;
+    overflow: hidden;
+    float: right;
+    padding: 20px 20px 0px 20px;
+    margin: 20px 20px 0px 20px;
+}
+li{
+    padding-bottom: 10px;
+}
+
+
+#buttons ul li{
+    display: inline;
+    text-decoration: none;
+    float: left;
+}
+
+#buttons ul li a{
+    margin-right: 5px;
+    text-decoration: none;
+    border: solid aliceblue 2px;
+    padding: 4px 6px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    color: black;
 }

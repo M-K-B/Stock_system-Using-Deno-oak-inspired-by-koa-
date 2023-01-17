@@ -1,16 +1,17 @@
 <body>
-
+    <div id="buttons">
         <ul>
-            <li><a href="/logout">Logout</a></li>
             <li><a href="/addStock">Add Stock</a></li>
+            <li><a href="/logout">Logout</a></li>
+            
         </ul>
-    
+    </div>
 
 
 
     {{#each data}}
         <div id="content">
-            
+            <div id="info">
             <ul>
                 <li>Item name : {{this.name}}</li>
                 <li>Barcode : {{this.barcode}}</li>
@@ -20,11 +21,15 @@
                 <li>Stock: {{this.quanity}}</li>
                 <li>Last updated : {{this.added}}</li>
                 <li>Updated By : {{this.Created}}</li>
-                <li><img src="./uploads/{{this.photo}}" width="100px" height="100px"></li>
-            </ul>  
-            <ul id="buttons">
-                <li><a href="/update/{{this.barcode}}">update</a>  <a href="/delete/{{this.barcode}}">delete</a></li>
-            </ul>
+                <div id="update">
+                <li><a href="/update/{{this.barcode}}">Update</a> </li>
+                </div>
+                </ul>
+            </div>
+            <div id="pic">
+                <p><img src="./uploads/{{this.photo}}" width="200px" height="200px"></p>
+            </div>
+            
         </div>
     {{/each}}
 
