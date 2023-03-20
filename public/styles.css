@@ -1,3 +1,12 @@
+@media screen and (max-width: 600px) {
+
+    .pic img{
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
 body{
     background-color: rgb(138, 183, 198);
 }
@@ -8,29 +17,28 @@ ul li {
 
 }
 
-#content{
+.content{
     background-color: rgb(190, 210, 217);
     width: 75%;
     height: 50vh;
     border-radius: 3vh;
     margin: auto;
-    padding: 30px;
-    margin-bottom: 20px;
+    padding: 20px;
+    margin-top: 50px;
     box-shadow: 0 4px 0 rgb(129, 128, 128), 0 6px 20px 0 rgb(129, 128, 128);
 }
-#info{
+.info{
     
-    margin-top: 25px;
+    margin-top: 40px;
     float: left;
-    
     
 }
 
-#update li{
+.update li{
     margin-top: 20px;
 }
 
-#info li a{
+.info li a{
     text-decoration: none;
     border: solid aliceblue 2px;
     padding: 4px 6px;
@@ -43,25 +51,39 @@ img{
     height: 250px;
     border-radius: 3vh;
 }
-#pic{
-    border: 1px solid green;
-    overflow: hidden;
+.pic{
+    
+    position:relative;
     float: right;
-    padding: 20px 20px 0px 20px;
-    margin: 20px 20px 0px 20px;
+    
 }
 li{
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
-
-#buttons ul li{
+.buttons {
+    height: 5vh;
+    width: 100%;
+    background-color: aquamarine;
+    
+}
+.buttons h1{
+    width: auto;
+}
+.buttons ul li, .buttons h1{
     display: inline;
-    text-decoration: none;
-    float: left;
+    text-decoration: none;  
+    
+   
+}
+.buttons ul {
+    margin-top: 10px;
+    width: auto;
+    position:relative;
+    float: right;
 }
 
-#buttons ul li a{
+.buttons ul li a{
     margin-right: 5px;
     text-decoration: none;
     border: solid aliceblue 2px;
@@ -69,4 +91,5 @@ li{
     border-radius: 5px;
     background-color: aliceblue;
     color: black;
+   
 }
